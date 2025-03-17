@@ -1,0 +1,10 @@
+C:\Users\Amend\source\repos\ImageConverter\ImageConverter\obj\Debug\net9.0-windows\ImageConverter.csproj.AssemblyReference.cache
+C:\Users\Amend\source\repos\ImageConverter\ImageConverter\obj\Debug\net9.0-windows\MainWindow.baml
+C:\Users\Amend\source\repos\ImageConverter\ImageConverter\obj\Debug\net9.0-windows\MainWindow.g.cs
+C:\Users\Amend\source\repos\ImageConverter\ImageConverter\obj\Debug\net9.0-windows\App.g.cs
+C:\Users\Amend\source\repos\ImageConverter\ImageConverter\obj\Debug\net9.0-windows\ImageConverter_MarkupCompile.cache
+C:\Users\Amend\source\repos\ImageConverter\ImageConverter\obj\Debug\net9.0-windows\ImageConverter.g.resources
+C:\Users\Amend\source\repos\ImageConverter\ImageConverter\obj\Debug\net9.0-windows\ImageConverter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amend\source\repos\ImageConverter\ImageConverter\obj\Debug\net9.0-windows\ImageConverter.AssemblyInfoInputs.cache
+C:\Users\Amend\source\repos\ImageConverter\ImageConverter\obj\Debug\net9.0-windows\ImageConverter.AssemblyInfo.cs
+C:\Users\Amend\source\repos\ImageConverter\ImageConverter\obj\Debug\net9.0-windows\ImageConverter.csproj.CoreCompileInputs.cache
