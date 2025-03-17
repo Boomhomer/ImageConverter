@@ -1,0 +1,121 @@
+﻿<Window x:Class="ImageConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Image Converter" Height="600" Width="600"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+        <TabControl>
+
+            <!-- 🏠 Hlavní nastavení -->
+            <TabItem Header="Hlavní nastavení">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Výběr vstupní složky -->
+                    <TextBlock Text="Zdrojová složka:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBox Name="txtFolderPath" Grid.Row="0" Grid.Column="1" Height="25" Margin="5" TextChanged="FolderPathChanged"/>
+                    <Button Content="Procházet" Grid.Row="0" Grid.Column="2" Width="90" Click="BrowseFolder" Margin="5"/>
+
+                    <!-- Výběr výstupní složky -->
+                    <TextBlock Text="Výstupní složka:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBox Name="txtOutputFolderPath" Grid.Row="1" Grid.Column="1" Height="25" Margin="5" TextChanged="FolderPathChanged"/>
+                    <Button Content="Procházet" Grid.Row="1" Grid.Column="2" Width="90" Click="BrowseOutputFolder" Margin="5"/>
+
+
+                    <!-- Logovací okno -->
+                    <ListBox Name="lstLogs" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+                             Margin="5" BorderThickness="1" BorderBrush="Gray" 
+                             ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+
+                    <!-- ProgressBar -->
+                    <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+                        <ProgressBar Name="progressBar" Height="20" 
+                 Minimum="0" Maximum="100" Value="0" 
+                 Visibility="Hidden"/>
+
+                        <TextBlock Name="txtProgress" Text="0 %" 
+               Foreground="Black" FontWeight="Bold" 
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"/>
+                    </Grid>
+
+
+                    <!-- Konvertovat -->
+                    <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+                        <TextBlock Name="txtStatus" Foreground="Red" FontSize="14" FontWeight="Bold"
+                                   HorizontalAlignment="Center" Margin="0,0,0,5"/>
+                        <Button Name="btnConvert" Content="Konvertovat"
+                                Width="140" Height="40" Background="Green" Foreground="White"
+                                Click="ConvertImages" IsEnabled="False" FontWeight="Bold"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- ⚙ Pokročilé nastavení -->
+            <TabItem Header="Pokročilé nastavení">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Výstupní formát -->
+                    <TextBlock Text="Výstupní formát:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                    <ComboBox Name="cmbFormat" Grid.Row="0" Grid.Column="1" Width="120" Height="25" Margin="5" SelectionChanged="FormatChanged">
+                        <ComboBoxItem Content="JPG" IsSelected="True"/>
+                        <ComboBoxItem Content="PNG"/>
+                        <ComboBoxItem Content="BMP"/>
+                        <ComboBoxItem Content="WebP"/>
+                    </ComboBox>
+
+                    <!-- Kvalita JPG -->
+                    <TextBlock Text="Kvalita JPG (1-100):" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                    <Slider Name="sliderQuality" Grid.Row="1" Grid.Column="1" Minimum="1" Maximum="100" Value="90" Width="150" Margin="5"/>
+                    <TextBlock Name="txtQuality" Text="90" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="5"/>
+
+                    <!-- Ořez a průhlednost -->
+                    <CheckBox Name="chkAutoCrop" Grid.Row="2" Grid.Column="0" Content="Ořezat prázdný prostor" Margin="5"/>
+                    <CheckBox Name="chkReplaceAlpha" Grid.Row="3" Grid.Column="0" Content="Nahradit průhlednost barvou" Margin="5"/>
+
+                    <!-- Barva průhlednosti -->
+                    <TextBlock Text="Barva náhrady:" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"/>
+                    <ComboBox Name="cmbAlphaColor" Grid.Row="3" Grid.Column="2" Width="100" Height="25" Margin="5">
+                        <ComboBoxItem Content="Bílá" IsSelected="True"/>
+                        <ComboBoxItem Content="Černá"/>
+                        <ComboBoxItem Content="Šedá"/>
+                    </ComboBox>
+
+                    <!-- Maximální velikost a změna velikosti -->
+                    <TextBlock Text="Maximální velikost (px):" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBox Name="txtMaxSize" Grid.Row="4" Grid.Column="1" Width="80" Height="25" Margin="5" Text="1000"/>
+                    <CheckBox Name="chkResizeByLongestSide" Grid.Row="5" Grid.Column="0"
+                              Content="Změnit velikost podle nejdelší strany" Margin="5"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
